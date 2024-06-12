@@ -23,6 +23,8 @@ const User = memo(({ provider, profile, accessToken, onLogout }) => {
 
   useEffect(() => {
 
+    console.log('profile ', profile, 'provider ', provider, 'accessToken ', accessToken)
+
     const fetchUserProfile = async (accessToken) => {
       try {
         const response = await fetch(
@@ -36,7 +38,27 @@ const User = memo(({ provider, profile, accessToken, onLogout }) => {
         console.error("Error fetching user profile:", error);
       }
     };
-    fetchUserProfile(accessToken);
+  
+    const fetchUserProfileFacebook = async (accessToken) => {
+      try {
+        const profileResponse = await fetch(`https://graph.facebook.com/me?fields=id,name,email,picture&access_token=${accessToken}`);
+        const profileData = await profileResponse.json();
+        console.log('User profile data:', profileData);
+        setUserData(profileData);
+      } catch (error) {
+        console.error('Error fetching user profile:', error);
+      }
+    };
+
+    if(provider === "google"){
+      fetchUserProfile(accessToken);
+    }
+
+    if(provider === "facebook"){
+      fetchUserProfileFacebook(accessToken);
+    }
+
+
   }, [profile, provider, accessToken]);
 
   return (
@@ -60,7 +82,7 @@ const User = memo(({ provider, profile, accessToken, onLogout }) => {
         </div> */}
         <div><p>Access Token: {accessToken}</p></div>
         <div><p>Name: {userData.name}</p></div>
-        <div><p>Given Name: {userData.given_name}</p></div>
+        {/* <div><p>Given Name: {userData.given_name}</p></div> */}
 
         <br></br>
         <br></br>

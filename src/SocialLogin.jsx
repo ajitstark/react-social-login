@@ -63,7 +63,7 @@ const App = () => {
             onResolve={({ provider, data }) => {
               setProvider(provider)
               setProfile(data)
-              setAccessToken(data?.access_token)
+              setAccessToken(data?.accessToken)
             }}
             onReject={(err) => {
               console.log("facebook login error: ", err)
