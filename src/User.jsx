@@ -82,6 +82,7 @@ const User = memo(({ provider, profile, accessToken, onLogout }) => {
         </div> */}
         <div><p>Access Token: {accessToken}</p></div>
         <div><p>Name: {userData.name}</p></div>
+        <div><p>Email: {userData.email} </p></div>
         {/* <div><p>Given Name: {userData.given_name}</p></div> */}
 
         <br></br>
