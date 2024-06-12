@@ -45,20 +45,26 @@ const User = memo(({ provider, profile, accessToken, onLogout }) => {
         <img alt="Profile Avatar" src={avatar} />
       </div> */}
 
+<div><img src={userData.picture} style={{width: "140px", height: "140px", borderRadius:  "50%", objectFit: "cover"}}></img></div>
+
       <h3 className="provider">{provider.toUpperCase()}</h3>
 
       <div className="content">
-        <div className="data">
+        {/* <div className="data">
           {Object.entries(profile).map(([key, value]) => (
             <div className="field" key={key}>
               <div className="label">{key}: </div>
               <div className="value">{JSON.stringify(value)}</div>
             </div>
           ))}
-        </div>
+        </div> */}
+        <div><p>Access Token: {accessToken}</p></div>
         <div><p>Name: {userData.name}</p></div>
         <div><p>Given Name: {userData.given_name}</p></div>
-        <div><img src={userData.picture} style={{width: "40px", height: "40px"}}></img></div>
+
+        <br></br>
+        <br></br>
+        
         <button className="btnLogout" onClick={onLogout}>
           Logout
         </button>
