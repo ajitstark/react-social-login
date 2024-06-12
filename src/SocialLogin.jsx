@@ -35,6 +35,7 @@ const REDIRECT_URI = window.location.href;
 const App = () => {
   const [provider, setProvider] = useState('')
   const [profile, setProfile] = useState(null)
+  const [accessToken, setAccessToken] = useState('')
 
   const onLoginStart = useCallback(() => {
     // alert('login start')
@@ -46,10 +47,12 @@ const App = () => {
     alert('logout success')
   }, [])
 
+  
+
   return (
     <>
       {provider && profile ? (
-        <User provider={provider} profile={profile} onLogout={onLogoutSuccess} />
+        <User provider={provider} profile={profile} accessToken={accessToken} onLogout={onLogoutSuccess} />
       ) : (
         <div className={`App ${provider && profile ? 'hide' : ''}`}>
           <h1 className='title'>ReactJS Social Login</h1>
@@ -60,9 +63,10 @@ const App = () => {
             onResolve={({ provider, data }) => {
               setProvider(provider)
               setProfile(data)
+              setAccessToken(data?.access_token)
             }}
             onReject={(err) => {
-              console.log("facebook error: ", err)
+              console.log("facebook login error: ", err)
             }}
           >
             <FacebookLoginButton />
@@ -75,9 +79,10 @@ const App = () => {
             onResolve={({ provider, data }) => {
               setProvider(provider)
               setProfile(data)
+              setAccessToken(data?.access_token)
             }}
             onReject={(err) => {
-              console.log(err)
+              console.log('google login error: ', err)
             }}
           >
             <GoogleLoginButton />
