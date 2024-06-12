@@ -37,7 +37,7 @@ const App = () => {
   const [profile, setProfile] = useState(null)
 
   const onLoginStart = useCallback(() => {
-    alert('login start')
+    // alert('login start')
   }, [])
 
   const onLogoutSuccess = useCallback(() => {
