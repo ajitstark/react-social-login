@@ -106,14 +106,14 @@ const REDIRECT_URI = 'https://react-social-login-nu.vercel.app';
             <FacebookLoginButton />
           </LoginSocialFacebook>
 
-          <InstagramLogin
+          {/* <InstagramLogin
             clientId="1382374749124081"
              client_secret="de219cc3ade4a73ec82dead7fb7f100f"
             buttonText="Login"
             onSuccess={handleInstagramLogin}
           />
 
-          <button onClick={handleLoginInstagramNew}>Instagram Login</button>
+          <button onClick={handleLoginInstagramNew}>Instagram Login</button> */}
 
 
           <LoginSocialInstagram
