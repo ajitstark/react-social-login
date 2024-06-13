@@ -14,6 +14,8 @@ import {
   LoginSocialTiktok,
 } from 'reactjs-social-login'
 
+import { InstagramLogin } from '@amraneze/react-instagram-login';
+
 import { config } from 'dotenv';
 
 
@@ -57,6 +59,10 @@ const App = () => {
 
   }
 
+  const handleInstagramLogin = () => {
+    console.log('instagram login successful')
+  }
+
   
 
   return (
@@ -81,6 +87,12 @@ const App = () => {
           >
             <FacebookLoginButton />
           </LoginSocialFacebook>
+
+          <InstagramLogin
+            clientId="1382374749124081"
+            buttonText="Login"
+            onSuccess={handleInstagramLogin}
+          />
 
 
           <LoginSocialInstagram
