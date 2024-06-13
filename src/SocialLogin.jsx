@@ -63,6 +63,24 @@ const App = () => {
     console.log('instagram login successful')
   }
 
+  const INSTAGRAM_CLIENT_ID = '1382374749124081';
+const REDIRECT_URI = 'https://react-social-login-nu.vercel.app';
+
+  const handleLoginInstagramNew = () => {
+    const instagramAuthUrl = `https://api.instagram.com/oauth/authorize?response_type=code&client_id=${INSTAGRAM_CLIENT_ID}&scope=user_profile,user_media&redirect_uri=${REDIRECT_URI}`;
+  
+  // Open a new popup window for Instagram login
+    const width = 600;
+    const height = 700;
+    const left = (window.innerWidth - width) / 2;
+    const top = (window.innerHeight - height) / 2;
+
+    window.open(
+      instagramAuthUrl,
+      'Instagram Login',
+      `width=${width},height=${height},top=${top},left=${left}`
+    );
+  }
   
 
   return (
@@ -90,9 +108,12 @@ const App = () => {
 
           <InstagramLogin
             clientId="1382374749124081"
+             client_secret="de219cc3ade4a73ec82dead7fb7f100f"
             buttonText="Login"
             onSuccess={handleInstagramLogin}
           />
+
+          <button onClick={handleLoginInstagramNew}>Instagram Login</button>
 
 
           <LoginSocialInstagram
