@@ -54,7 +54,7 @@ const App = () => {
   }
 
   const onLogoutInstagramSuccess = () => {
-    
+
   }
 
   
@@ -92,6 +92,7 @@ const App = () => {
             onResolve={({ provider, data }) => {
               setProvider(provider);
               setProfile(data);
+              setAccessToken(data?.accessToken)
             }}
             onReject={(err) => {
               console.log(err);
