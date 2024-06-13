@@ -47,6 +47,16 @@ const App = () => {
     alert('logout success')
   }, [])
 
+  //
+
+  const onLoginInstagramStart = () => {
+
+  }
+
+  const onLogoutInstagramSuccess = () => {
+    
+  }
+
   
 
   return (
@@ -71,6 +81,24 @@ const App = () => {
           >
             <FacebookLoginButton />
           </LoginSocialFacebook>
+
+
+          <LoginSocialInstagram
+            client_id="1382374749124081"
+            client_secret="de219cc3ade4a73ec82dead7fb7f100f"
+            redirect_uri=""
+            onLoginStart={onLoginInstagramStart}
+            onLogoutSuccess={onLogoutInstagramSuccess}
+            onResolve={({ provider, data }) => {
+              setProvider(provider);
+              setProfile(data);
+            }}
+            onReject={(err) => {
+              console.log(err);
+            }}
+          >
+          <InstagramLoginButton />
+        </LoginSocialInstagram>
 
           <LoginSocialGoogle
             isOnlyGetToken
