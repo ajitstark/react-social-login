@@ -89,7 +89,7 @@ const REDIRECT_URI = 'https://react-social-login-nu.vercel.app';
         <User provider={provider} profile={profile} accessToken={accessToken} onLogout={onLogoutSuccess} />
       ) : (
         <div className={`App ${provider && profile ? 'hide' : ''}`}>
-          <h1 className='title'>ReactJS Social Login</h1>
+          <h1 className='title'>ReactJS Social Login</h1><br></br>
           <LoginSocialFacebook
             isOnlyGetToken
             appId="1525658845022353"
@@ -113,7 +113,9 @@ const REDIRECT_URI = 'https://react-social-login-nu.vercel.app';
             onSuccess={handleInstagramLogin}
           />
 
-          <button onClick={handleLoginInstagramNew}>Instagram Login</button> */}
+           */}
+
+          
 
 
           <LoginSocialInstagram
@@ -149,6 +151,13 @@ const REDIRECT_URI = 'https://react-social-login-nu.vercel.app';
           >
             <GoogleLoginButton />
           </LoginSocialGoogle>
+
+          <br></br>
+          <br></br>
+
+          <h3>Custom Package</h3>
+
+          <button onClick={handleLoginInstagramNew} style={{width: "100%", textAlign: "start", fontSize: "18px", background: "linear-gradient(to right, rgb(236, 146, 35) 0%, rgb(177, 42, 160) 50%, rgb(105, 14, 224) 100%)", color: "#fff", border: 0}}>Instagram Login</button>
 
         </div>
       )}
