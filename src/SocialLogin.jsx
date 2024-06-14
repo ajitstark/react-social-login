@@ -121,7 +121,7 @@ const REDIRECT_URI = 'https://react-social-login-nu.vercel.app';
           <LoginSocialInstagram
             client_id="1382374749124081"
             client_secret="de219cc3ade4a73ec82dead7fb7f100f"
-            redirect_uri="https://react-social-login-nu.vercel.app"
+            redirect_uri="https://react-social-login-nu.vercel.app/"
             onLoginStart={onLoginInstagramStart}
             onLogoutSuccess={onLogoutInstagramSuccess}
             onResolve={({ provider, data }) => {
