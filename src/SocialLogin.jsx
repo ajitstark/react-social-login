@@ -127,9 +127,10 @@ const REDIRECT_URI = 'https://react-social-login-nu.vercel.app';
             onLoginStart={onLoginInstagramStart}
             onLogoutSuccess={onLogoutInstagramSuccess}
             onResolve={({ provider, data }) => {
+              console.log('instagram auth response ', data)
               setProvider(provider);
               setProfile(data);
-              setAccessToken(data?.accessToken)
+              setAccessToken(data?.access_token)
             }}
             onReject={(err) => {
               console.log(err);
@@ -153,13 +154,13 @@ const REDIRECT_URI = 'https://react-social-login-nu.vercel.app';
           >
             <GoogleLoginButton />
           </LoginSocialGoogle>
-
+{/* 
           <br></br>
           <br></br>
 
           <h3>Custom Package</h3>
 
-          <button onClick={handleLoginInstagramNew} style={{width: "100%", textAlign: "start", fontSize: "18px", background: "linear-gradient(to right, rgb(236, 146, 35) 0%, rgb(177, 42, 160) 50%, rgb(105, 14, 224) 100%)", color: "#fff", border: 0}}>Instagram Login</button>
+          <button onClick={handleLoginInstagramNew} style={{width: "100%", textAlign: "start", fontSize: "18px", background: "linear-gradient(to right, rgb(236, 146, 35) 0%, rgb(177, 42, 160) 50%, rgb(105, 14, 224) 100%)", color: "#fff", border: 0}}>Instagram Login</button> */}
 
         </div>
       )}

@@ -50,12 +50,27 @@ const User = memo(({ provider, profile, accessToken, onLogout }) => {
       }
     };
 
+    const fetchUserProfileInstagram = async (accessToken) => {
+      try {
+        const profileResponse = await fetch(`https://graph.instagram.com/me?fields=id,username&access_token=${accessToken}`);
+        const profileData = await profileResponse.json();
+        console.log('User profile data:', profileData);
+        setUserData(profileData);
+      } catch (error) {
+        console.error('Error fetching user profile:', error);
+      }
+    };
+
     if(provider === "google"){
       fetchUserProfile(accessToken);
     }
 
     if(provider === "facebook"){
       fetchUserProfileFacebook(accessToken);
+    }
+
+    if(provider === "instagram"){
+      fetchUserProfileInstagram(accessToken)
     }
 
 
@@ -81,7 +96,7 @@ const User = memo(({ provider, profile, accessToken, onLogout }) => {
           ))}
         </div> */}
         <div><p>Access Token: {accessToken}</p></div>
-        <div><p>Name: {userData.name}</p></div>
+        <div><p>Name: {userData.name || userData.username}</p></div>
         <div><p>Email: {userData.email} </p></div>
         {/* <div><p>Given Name: {userData.given_name}</p></div> */}
 
